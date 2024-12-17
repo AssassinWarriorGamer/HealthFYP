@@ -2,17 +2,16 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation"; // Import useRouter
 import { z } from "zod";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
-import { useState } from "react"; // Import useState for managing loading state
-import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 export enum FormFieldType {
   INPUT = "input",
   TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput", // Keep PHONE_INPUT type
+  PHONE_INPUT = "phoneInput",
   CHECKBOX = "checkbox",
   DATE_PICKER = "datePicker",
   SELECT = "select",
@@ -29,34 +28,28 @@ const formSchema = z.object({
   phone: z.string().regex(
     /^\+?[1-9]\d{1,14}$/,
     "Invalid phone number format."
-  ), // Phone number validation regex
+  ),
 });
 
 const UserForm = () => {
-  const [isLoading, setIsLoading] = useState(false); // Define isLoading state
-  const router = useRouter(); // Initialize the router for navigation
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
       email: "",
-      phone: "", // Add default value for phone
+      phone: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true); // Set isLoading to true when form submission starts
-    setTimeout(() => {
-      console.log(values); // Simulate submission logic
-      setIsLoading(false); // Set isLoading to false when form submission is complete
-    }, 2000); // Simulate a 2-second delay for the submission
-  }
+  const router = useRouter(); // Initialize useRouter
 
-  // Navigate to registration page when "Register" button is clicked
-  function handleRegister() {
-    router.push("/registration"); // Replace "/registration" with your registration page URL
-  }
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
+  const handleRegister = () => {
+    router.push("/register"); // Redirect to Register page
+  };
 
   return (
     <Form {...form}>
@@ -88,7 +81,7 @@ const UserForm = () => {
           iconAlt="email"
         />
 
-        {/* Phone Number Field using PhoneInput */}
+        {/* Phone Number Field */}
         <CustomFormField
           fieldType={FormFieldType.PHONE_INPUT}
           control={form.control}
@@ -97,17 +90,20 @@ const UserForm = () => {
           placeholder="+1234567890"
         />
 
-        {/* Submit Button with Loading State */}
-        <SubmitButton isLoading={isLoading}>Log In</SubmitButton>
+        {/* Buttons */}
+        <div className="flex gap-4">
+          {/* Submit Button */}
+          <SubmitButton isLoading={false}>Login</SubmitButton>
 
-        {/* Register Button */}
-        <button
-          type="button"
-          onClick={handleRegister}
-          className="shad-primary-btn w-full flex items-center justify-center gap-2 py-2 px-4 border-2 border-primary bg-primary text-white rounded-lg hover:bg-primary-dark"
-        >
-          Register
-        </button>
+          {/* Register Button */}
+          <button
+            type="button" // Prevent form submission
+            onClick={handleRegister}
+            className="shad-primary-btn w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition ease-in-out"
+          >
+            Register
+          </button>
+        </div>
       </form>
     </Form>
   );
