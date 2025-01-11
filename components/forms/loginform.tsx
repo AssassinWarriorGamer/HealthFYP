@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,7 @@ import { z } from "zod";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
+import { FcGoogle } from "react-icons/fc";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -25,10 +26,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Invalid email address.",
   }),
-  phone: z.string().regex(
-    /^\+?[1-9]\d{1,14}$/,
-    "Invalid phone number format."
-  ),
+  phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number format."),
 });
 
 const UserForm = () => {
@@ -56,7 +54,7 @@ const UserForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
           <h1 className="header">Welcome</h1>
-          <p className="text-dark-700"></p>
+          <p className="text-white"></p>
         </section>
 
         {/* Username Field */}
@@ -68,6 +66,7 @@ const UserForm = () => {
           placeholder="John Doe"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
+          
         />
 
         {/* Email Field */}
@@ -99,11 +98,29 @@ const UserForm = () => {
           <button
             type="button" // Prevent form submission
             onClick={handleRegister}
-            className="shad-primary-btn w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition ease-in-out"
+            className="shad-primary-btn w-full bg-blue-700 text-white py-2 px-4 rounded hover:bg-green-700 transition ease-in-out"
           >
             Register
           </button>
         </div>
+
+        {/* OR Separator */}
+        <div className="my-4 flex items-center gap-2">
+          <hr className="flex-1 border-gray-300" />
+          <span className="text-sm text-gray-500">OR</span>
+          <hr className="flex-1 border-gray-300" />
+        </div>
+
+        {/* Sign in with Google */}
+        <button
+          className="google flex items-center justify-center gap-2 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out"
+          onClick={() => {
+            // Add Google Sign-In Logic Here
+          }}
+        >
+          <FcGoogle className="google-icon text-lg" />
+          Sign in with Google
+        </button>
       </form>
     </Form>
   );

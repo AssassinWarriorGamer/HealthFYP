@@ -12,7 +12,7 @@ import { Control, FieldPath, FieldValues, UseControllerProps } from "react-hook-
 import Image from "next/image";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'; // Import the style for PhoneInput
-import { FormFieldType } from "@/components/forms/UserForm";
+import { FormFieldType } from "@/components/forms/loginform";
 
 interface CustomProps<T extends FieldValues> {
   control: Control<T>;
@@ -61,14 +61,14 @@ const RenderInput = <T extends FieldValues>({
               onChange={field.onChange}
               onBlur={field.onBlur}
               disabled={props.disabled}
-              className="shad-input border-0"
+              className="shad-input border-0 text-white"
             />
           </FormControl>
         </div>
       );
       case FormFieldType.PHONE_INPUT:
         return (
-          <div className="flex rounded-md border-dark-500 bg-dark-400">
+          <div className="flex rounded-md border-dark-500 bg-dark-400 text-white">
             {props.iconSrc && (
               <Image
                 src={props.iconSrc}
@@ -81,7 +81,7 @@ const RenderInput = <T extends FieldValues>({
             <FormControl>
               <PhoneInput
                 defaultCountry="MY"
-                international
+                internationalz
                 withCountryCallingCode
                 onChange={field.onBlur}
               />
@@ -105,7 +105,7 @@ const CustomFormField = <T extends FieldValues>(props: CustomProps<T>) => {
             <FormLabel>{label}</FormLabel>
           )}
           <RenderInput field={field} props={props} />
-          <FormMessage className="shade-error" />
+          <FormMessage className="text-red-700" />
         </FormItem>
       )}
     />

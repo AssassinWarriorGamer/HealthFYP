@@ -183,7 +183,7 @@
 
   /* =====  SHADCN OVERRIDES */
   .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
+    @apply bg-blue-700 text-white !important;
   }
 
   .shad-danger-btn {
@@ -347,4 +347,327 @@
 
 .PhoneInputInput::placeholder {
   color: #1a1d21;
+}
+
+/* Sidebar */
+.sidebar {
+  @apply w-72 bg-dark-200 text-white h-screen fixed top-0 left-0 px-[5%] py-5 flex flex-col space-y-6 rounded-2xl shadow-lg;
+}
+
+.sidebar h2 {
+  @apply text-32-bold text-center text-gray-100 mb-6;
+}
+
+.sidebar h4 {
+  @apply text-32-bold text-center text-gray-100 mb-6;
+}
+
+.sidebar ul {
+  @apply list-none p-0;
+}
+
+.sidebar ul li {
+  @apply mb-4;
+}
+
+.sidebar ul li a {
+  @apply block text-white text-16-regular py-2 px-4 rounded-md transition duration-300 ease-in-out;
+}
+
+.sidebar ul li a:hover {
+  @apply bg-green-500 text-dark-800;
+}
+
+.sidebar ul li a.active {
+  @apply bg-green-500 text-white;
+}
+
+
+/* Sidebar Header */
+.sidebar .sidebar-header {
+  @apply text-32-bold text-gray-100 mb-8 sticky top-3 z-20;
+}
+
+/* Icon Styling */
+.sidebar ul li a svg {
+  @apply inline-block mr-4 w-5 h-5;
+}
+
+/* Header */
+
+
+.notification-icon {
+  margin-right: 1rem;
+}
+
+.admin-profile {
+  font-weight: bold;
+}
+
+
+
+.user-profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.user-profile img {
+  margin-bottom: 0.5rem;
+}
+
+.user-profile .user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+.logout-btn {
+  background-color: #0000FF; /* Red background */
+  font-weight: bold;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-header {
+  @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+}
+
+.user-main {
+  @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
+}
+
+.user-stat {
+  @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+}
+
+.header {
+  @apply text-32-bold md:text-36-bold;
+}
+
+.text-16-semibold {
+  @apply text-[16px] leading-[20px] font-semibold;
+}
+
+.health-metrics-page {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.health-metrics-form {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+}
+
+.health-metrics-form h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.health-metrics-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.health-metrics-form input,
+.health-metrics-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.health-metrics-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saved-data, .wearable-data {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saved-data h2, .wearable-data h2 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.saved-data p, .wearable-data p {
+  margin: 5px 0;
+}
+
+/* track progress 8*/
+.track-progress-page {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.chart-container {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.activity-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.activity-form input,
+.activity-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.activity-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition:  0.32s ease-in-out;
+}
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+nav.navbar a.navbar-brand {
+    width: 9%;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+}
+
+.navbar-text button {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+.navbar-text button span {
+  z-index: 1;
+}
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text button:hover {
+  color: #121212;
+}
+.navbar-text button:hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+	outline: none;
+    box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+	border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+	width: 24px;
+	position: absolute;
+	height: 2px;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+	transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+	top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
 }

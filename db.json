@@ -1,0 +1,15 @@
+{
+    "users": [
+      { "id": 1, "email": "user1@example.com", "password": "12345" },
+      { "id": 2, "email": "user2@example.com", "password": "54321" }
+    ],
+    "healthMetrics": [
+      { "id": 1, "userId": 1, "weight": 70, "height": 175, "age": 25, "activityLevel": "Moderate", "fitnessGoal": "Lose Weight" }
+    ],
+    "workoutPlans": [
+      { "id": 1, "userId": 1, "planName": "Beginner Cardio", "duration": "30 mins", "details": "Treadmill, cycling" }
+    ],
+    "notifications": [
+      { "id": 1, "userId": 1, "message": "Don't forget to hydrate!", "date": "2024-12-31" }
+    ]
+  }
